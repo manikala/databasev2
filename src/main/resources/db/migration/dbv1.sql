@@ -21,7 +21,7 @@ CREATE SEQUENCE products_seq START 1 INCREMENT 1;
 CREATE TABLE products (id INT NOT NULL, primary key (id), name INT);
 
 --Категория и продукты
-CREATE TABLE categories (product_id INT NOT NULL, category_id INT NOT NULL);
+CREATE TABLE products_categories (product_id INT NOT NULL, category_id INT NOT NULL);
 
 alter table if exists products_categories
     add constraint products_categories_fk_category
@@ -32,7 +32,7 @@ alter table if exists products_categories
     foreign key (product_id) references products;
 
 --Продукты в карзине
-CREATE TABLE categories (bucket_id INT NOT NULL, product_id INT NOT NULL);
+CREATE TABLE bucket_products (bucket_id INT NOT NULL, product_id INT NOT NULL);
 
 alter table if exists bucket_products
     add constraint bucket_products_fk_product
